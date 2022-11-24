@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>PEN</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            float: left;
+            list-style: none;
+            height: 58px;
+            line-height: 58px;
+            margin-right: 42px;
+        }
+        a {
+            /* display: inline-block;
+            height: 30px;
+            width: 100px; */                                /*有时间修改一下鼠标移动上去的变化*/
+            text-decoration: none;
+            color: rgb(255, 254, 254);
+        }
+        .w{
+            width: 1920px;
+            margin: auto;
+        }
+        .nav {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 50%;
+            margin-left: -960px;
+        }
+        .nav .text {
+            position: absolute;
+            left: 50%;
+            margin-left: -335px;
+            display: inline-block;
+            
+        }
+        .nav .redblock{
+            float: left;
+            width: 190px;
+            height: 58px;
+            margin-right: 25px;
+            background-color: #e8024d;
+        }
+        .nav a:hover{
+            background-color: rgba(114, 114, 114, 0.5);
+        }
+        .lamy{
+            display: inline-block;
+            margin-top: 9px;
+            margin-left: 11px;
+            font-weight: 700;
+        }
+        .de{
+            width: 190px;
+            font-size: 3px;
+            margin-left: 25px;
+        }
+        .hd-bgi {
+            position: relative;
+            height: 814px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/bj1.png);
+        }
+        .hd-bgi .hd-bgi- {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 814px;
+            background-color: rgba(10, 10, 10, .5);
+        }
+        .hd-bgi .tl{
+            
+            position: absolute;
+            width: 993px;
+            top: 310px;
+            left: 50%;
+            margin-left: -496px;                                           
+            z-index: 2;
+        }
+        .by-ti {
+            position: relative;
+            height: 448px;
+            background-color: #eae7e8;
+            margin-top: 28px;
+        }
+        .by-ti .by-img {
+            position: absolute;
+            top: 50px;
+            left: 410px;
+            z-index: 1;
+        }
+        .by-ti .by-text {
+            position: absolute;
+            width: 730px;
+            height: 505px;
+            z-index: 1;
+            background-color: #fff;
+            top: 50px;
+            left: 832px;
+            box-shadow:0 15px 30px rgba(0,0,0,0.1);
+        }
+        .by-text .texthd,
+        .textby1,
+        .textby2 {
+            margin: 0 55px 72px 80px;
+        }
+        .by-ti .texthd {
+            margin-top: 65px;
+            font-size: 55px;
+        }
+        .by-text .textby1,
+        .textby2{
+            font-size: 20px;
+            font-family: SimSun;
+        }
+        .by-text .textby1 {
+            margin-bottom: 45px;
+        }
+        .by-ti .player {
+            position: absolute;
+            top: 374px;
+            left: 530px;
+            z-index: 2;
+            width: 365px;
+            height: 237px;
+            background-color: rgba(241, 57, 121, 0.781);
+        }
+        .by-ti .player img {
+            display: block;
+            width: 58px;
+            margin: 74px auto 103px auto;
+        }
+        .wbox {
+            position: relative;
+            background-color: #fff;
+            height: 845px;
+        }
+        .wbox .btexthd {
+            position: absolute;
+            top: 262px;
+            left: 50%;
+            margin-left: -205px;
+            width: 410px;
+            font-size: 55px;
+        }
+        .wbox .btextby1,
+        .btextby2,
+        .btextby3 {
+            position: absolute;
+            top: 425px;
+            width: 380px;
+            height: 214px;
+            background-color: #fff;
+        }
+        .wbox .btextby1 p,
+        .wbox .btextby2 p,
+        .wbox .btextby3 p {
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .wbox .btextby1 div,
+        .wbox .btextby2 div,
+        .wbox .btextby3 div {
+            font-size: 19px;
+        }
+        .wbox .btextby1 {
+            left: 365px;
+        }
+        .wbox .btextby2 {
+            left: 773px;
+        }
+        .wbox .btextby3 {
+            left: 1182px;
+        }
+         .te{
+            position: absolute;
+            bottom: 45px;
+            left: 838px;
+            width: 241px;
+            height: 65px;
+            text-align: center;
+            line-height: 65px;
+            background-color: #000;
+            color: #fff;
+        }
+        .te img {
+            float: right;
+            margin: 16px 13px 0 0;
+        }
+        .te0 {
+            bottom: 20px;
+            background-color: #e8024d;
+        }
+        .twopen {
+            position: relative;
+            height: 388px;
+        }
+        .twopen .leftbox,
+        .rightbox {
+            position: absolute;
+            top: 0;
+            width: 360px;
+            height: 388px;
+            background-color: rgba(218, 216, 217, .8);
+        }
+        .twopen .leftbox {
+            left: 0;
+        }
+        .twopen .rightbox {
+            right: 0;
+        }
+        .twopen .penone {
+            position: absolute;
+            top: 0;
+            left: 360px;
+            z-index: 1;
+            width: 1200px;
+            height: 223px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/bj3-3%20.png);
+        }
+        .twopen .pentwo {
+            position: absolute;
+            bottom: -61px;
+            left: 360px;
+            width: 1200px;
+            height: 274px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/p24964204.png);
+        }
+        .skaimg {
+            position: relative;
+            z-index: 1;
+            height: 347px;
+            background-color: rgb(111, 109, 109);
+        }
+        .skaimg .skatext {
+            position: absolute;
+            top: 78px;
+            left: 812px;
+        }
+        .skaimg .skatext .skatext1 {
+            margin-left: 60px;
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+         .skaimg .skatext .skatext2 {
+            font-size: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .skaimg .comment {
+            position: absolute;
+            top: 168px;
+            left: 542px;
+            width: 813px;
+            height: 273px;
+            background-color: #fff;
+            box-shadow: 0 12px 12px rgba(0,0,0,0.3);
+        }
+        .skaimg .comment img {
+            position: absolute;
+            border-radius: 47px;
+            top: 30px;
+            left: 380px;
+            width: 60px;
+            height: 60px;
+        }
+        .skaimg .recomment {
+            position: absolute;
+            top: 140px;
+            left: 120px;
+            font-size: 19px;
+            font-family: Micr0soft YaHei;
+        }
+        .skaimg .skabox {
+            position: absolute;
+            bottom: 30px;
+            left: 305px;
+            width: 229px;
+            height: 15px;
+            background-color: #fff;
+        }
+        .skaimg .skabox a {
+            display: inline-block;
+            margin-right: 30px;
+            width: 43px;
+            height: 9px;
+            background-color: #e6e4e4;
+        }
+        .skaimg .skabox a:hover {
+            background-color: rgba(128, 122, 122, .8);
+        }
+        .siximg {
+            position: relative;
+            height: 1011px;
+            background-color: #fff;
+        }
+        .siximg .siximgtext {
+            position: absolute;
+            top: 144px;
+            left: 880px;
+        }
+        .siximg .siximgtext p {
+            font-size: 18px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+        }
+        .siximg .siximgtext span {
+            font-size: 25px;
+            font-family:fantasy;
+        }
+        .siximg .manyimg {
+            position: absolute;
+            top: 245px;
+            left: 520px;
+            width: 865px;
+            height: 560px;
+            background-color: #fff;
+        }
+        .siximg .manyimg img {
+            float: left;
+        }
+        .siximg .manyimg .i1,
+        .siximg .manyimg .i2,
+        .siximg .manyimg .i3,
+        .siximg .manyimg .i4,
+        .siximg .manyimg .i5,
+        .siximg .manyimg .i6 {
+            position: absolute;
+        }
+
+        .siximg .manyimg .i1 {
+           top: 0;
+           left: 0;
+        }
+        .siximg .manyimg .i2 {
+            top: 0;
+            left: 310px;
+        }
+        .siximg .manyimg .i3 {
+            top: 0;
+            right: 0;
+        }
+        .siximg .manyimg .i4 {
+            bottom: 0;
+            left: 0;
+        }
+        .siximg .manyimg .i5 {
+            bottom: 0;
+            left: 310px;
+        }
+        .siximg .manyimg .i6 {
+            bottom: 0;
+            right: 0;
+        }
+        .threeimg {
+            position: relative;
+            height: 340px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/%E5%9B%BE%E5%B1%8216.png);
+        }
+        .threeimg .threeimgco {
+            position: absolute;
+            top: 90px;
+            left: 543px;
+            z-index: 1;
+            width: 875px;
+            height: 390px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 12px 12px rgba(0, 0, 0, .8);
+        }
+        .threeimg .threeimgco div {
+            width: 813px;
+            height: 121px;
+            margin-bottom: 15px;
+            font-size: 19px;
+        }
+        .threeimg .threeimgco img {
+            float: left;
+            margin-right: 20px;
+        }
+        .newgood {
+            position: relative;
+            height: 311px;
+            background-color: #fff;
+        }
+        /* 975 */
+        .end {
+            position: relative;
+            height: 975px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/u=2841084098,2707058765&fm=27&gp=0.png);
+        }
+        .end .endfog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 975px;
+            background-color: rgba(255, 255, 255, .15);
+        }
+        .end .endtext {
+            position: absolute;
+            top: 230px;
+            left: 690px;
+            width: 550px;
+            /* height: 80px; */
+            /* line-height: 80px; */
+            /* font-style: italic; */
+        }
+        .end .endtext div {
+            display: inline-block;
+            font-size: 19px;
+        }
+        .end .endtext .end02 {
+            height: 40px;
+            margin-left: 46px;
+            margin-right: 46px;
+            line-height: 40px;
+            font-size: 113px;
+        }
+        .copyright {
+            height: 35px;
+            line-height: 35px;
+            background-color: #535353;
+        }
+        .copyright .righttext {
+            width: 244px;
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 最顶部的导航栏 -->
+    <div class="nav w">
+        <div class="text">
+            <ul>
+                <li><a href="#">新品推荐</a></li>
+                <li><a href="#">在线购买产品</a></li>
+                <div class="redblock">
+                    <div class="lamy">LAMY</div>  <br />
+                    <div class="de">Designed Made in Germany.</div>
+                </div>
+                <li><a href="#">企业礼包</a></li>
+                <li><a href="#">品牌介绍</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部钢笔背景 滤镜 和艺术字-->
+    <div class="hd-bgi w">
+        <div class="hd-bgi-"></div>
+        <div class="tl"><img src="https://ta0.oss-cn-beijing.aliyuncs.com/bj1-en.png" alt=""></div>
+    </div>
+    <!-- 图片文字部分 -->
+    <div class="by-ti w">
+        <div class="by-img"><img src="https://ta0.oss-cn-beijing.aliyuncs.com/bj2-2.png" alt=""></div>
+        <div class="by-text">
+           <div class="texthd">Welcome to Lamy</div>
+           <div class="textby1">
+            德国书写工具品牌LAMY始创人C•Josef Lamy于1930年在海德
+            堡创立了欧瑟斯墨水笔制造厂.1952年，崭露头角的LAMY 流线
+            型墨水笔，震撼问世, 彰显公司的创新敏锐触觉。1966年终于打
+           </div>
+           <div class="textby2">
+            造出令人耳目一新的现代经典之作-LAMY 2000系列。产品撮合
+            了聚碳酸酯与不锈钢材质，绝妙的配搭，使之从芸芸众生的书写
+            工具中脱颖而出，时至今日，依然在市场具有影响力。
+           </div>
+        </div>
+        <div class="player">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/%E6%92%AD%E6%94%BE.png" alt="">
+        </div>
+    </div>
+    <!-- 白色背景文字部分 -->
+    <div class="wbox w">
+        <div class="btexthd">L&nbsp;A&nbsp;M&nbsp;Y&nbsp;各&nbsp;系&nbsp;列</div>
+        <div class="btextby1">
+            <p>【恒星系列&nbsp;墨水笔&nbsp;】</p>
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAMY&nbsp;&nbsp;恒星系列延续了&nbsp;&nbsp;&nbsp;LAMY&nbsp;&nbsp;<br />
+                &nbsp;&nbsp;的时尚造型,打造出锦上添花的极致品质<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;。此系列全部均由氧化<br />
+                &nbsp;&nbsp;&nbsp;独特的凹陷式笔握以及弹性铜线笔夹<br />富的颜色让&nbsp;&nbsp;&nbsp;LAMY&nbsp;&nbsp;&nbsp;恒星系列突破了传统<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;散发着无限的青春魅力。
+            </div>
+        </div>
+        <div class="btextby2">
+            <p>【狩猎系列限量色墨水笔 】</p>
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;色彩丰富，颜色亮丽，不仅是可以作为书<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写工具，同样是很好的装饰品<br />
+                宽大的笔夹设计，可随时夹在包带、牛仔裤、<br />
+                &nbsp;&nbsp;&nbsp;T恤袖口上，让您感受创意方便的携带方式<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;笔身通体材质采用车用强力ABS材料
+            </div>
+        </div>
+        <div class="btextby3">
+            <p>【喜悦系列美术笔】</p>
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用以绘图、写艺术字、艺术签名<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扁平状的笔尖设计，适合书写艺术字<br />
+                &nbsp;&nbsp;&nbsp;立体感极佳.1、1.5、1.9三种笔尖可供选择<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;，可书写粗细不等的立体字，让您随时<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  感受变化的乐复古的笔杆设计<br>
+                ，经典又与众不同，显示出独特的欣赏品味
+            </div>
+        </div>
+        <div class="btextfoot">
+            <a href="#" class="te">
+                了解详情
+                <img src="https://ta0.oss-cn-beijing.aliyuncs.com/arrow-double-right.png" alt="">
+            </a>
+        </div>
+    </div>
+    <!-- 钢笔图片部分 -->
+    <div class="twopen w">
+        <div class="leftbox"></div>
+        <div class="penone"></div>
+        <div class="pentwo"></div>
+        <div class="rightbox"></div>
+    </div>
+    <!-- 轮播图部分 -->
+    <div class="skaimg w">
+        <div class="skatext">
+            <div class="skatext1">From Germany</div>
+            <div class="skatext2">What people are saying?</div>
+        </div>
+        <div class="comment">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/IMG_20180210_144432.png" alt="">
+            <div class="recomment">
+                使用令人难以置信的生产技术和坚持极高水平的精准要求，仅使用一种 <br />
+                材质，也足以成就出这款永恒的设计。产品本身是体现不同加工程序和 <br />
+                制造工艺。手工打磨的亚光拉丝表面充分体现了品牌对细节的注重。
+            </div>
+            <div class="skabox">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+            </div>
+    </div>
+    <!-- 图片部分 -->
+    <div class="siximg w">
+        <div class="siximgtext">
+            <p>Choose</p>
+            <span>Our products</span>
+        </div>
+        <div class="manyimg">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/%E5%85%A8%E6%A0%88%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BB%BB%E5%8A%A1-%E6%81%A2%E5%A4%8D%E7%9A%84_07.png" alt="" class="i1">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/2_07.png" class="i2">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/u=3725517664,3071040087&fm=27&gp=0.png" alt="" class="i3">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/04_07.png" alt="" class="i4">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/04_10.png" alt="" class="i5">
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/03_10.png" alt="" class="i6">
+        </div>
+        <a href="#" class="te">
+            戳我速购
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/arrow-double-right.png" alt="">
+        </a>
+    </div>
+    <!-- 三张图片三段解说部分 -->
+    <div class="threeimg w">
+        <!-- 875 432 -->
+        <div class="threeimgco">
+            <div class="threeimgco1">
+                <img src="https://ta0.oss-cn-beijing.aliyuncs.com/1_11.png" alt="">
+                <br />
+                You make millions of decisions that is <br />
+                mean nothing，and then one day your    <br />
+                order takes out life.
+            </div>
+            <div class="threeimgco2">
+                <img src="https://ta0.oss-cn-beijing.aliyuncs.com/2_11.png" alt="">
+                <br />
+                It's sad when you realize you aren't <br />
+                is as important to someone as you   <br />
+                thought you were.
+            </div>
+            <div class="threeimgco3">
+                <img src="https://ta0.oss-cn-beijing.aliyuncs.com/3_11.png" alt="">
+                <br />
+                Love is unequal, so don't count how <br />
+                much one contributes, and which is  <br />
+                more active.
+            </div>
+        </div>
+    </div>
+    <!-- 新品推荐部分 -->
+    <div class="newgood w">
+        <a href="#" class="te te0">
+            戳我速购
+            <img src="https://ta0.oss-cn-beijing.aliyuncs.com/arrow-double-right.png" alt="">
+        </a>
+    </div>
+    <!-- 结尾部分 -->
+    <div class="end w">
+        <div class="endfog w "></div>
+        <div class="endtext">
+            <div class="end01">
+                CUTE <br /> 
+                useful
+            </div>
+            <div class="end02">LAMY</div>
+            <div class="end03">
+                GOOD <br /> 
+                SIMPLE
+            </div>
+        </div>
+    </div>
+    <!-- 版权部分 -->
+    <div class="copyright w">
+        <div class="righttext">
+            ©&nbsp;凌美中国&nbsp;2015&nbsp;版权所有&nbsp;不得转载
+        </div>
+    </div>
+</body>
+</html>
