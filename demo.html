@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .w {
+            width: 600px;
+            margin: 0 auto;
+        }
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+        input {
+            height: 85px;
+            border: none;
+            border-bottom: 1px solid oldlace;
+            font-size: 26px;
+            color: #fff;
+            background-color: transparent;
+            background-repeat: no-repeat;
+        }
+        .all {
+            position: relative;
+            z-index: -2;
+            height: 1030px;
+            background-image: url(https://ta0.oss-cn-beijing.aliyuncs.com/Background.png);
+        }
+        /* 想改变矢量图大小，但我是在线引用 */
+        /* .iconfong {
+            font-size: 50px;
+        } */
+        .loghead {
+            display: flex;
+            justify-content: space-between;
+            height: 50px;
+            margin-top: 20px;
+        }
+        .loghead-01,
+        .loghead-02,
+        .loghead-03 {
+            height: 50px;
+            width: 50px;
+        }
+        .loghead-02 {
+           width: 70px; 
+        }
+        .logbody {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 465px;
+            font-size: 23px;
+        }
+        .bodyimg {
+            display: flex;
+            justify-content: center;
+            margin-top: 90px;
+        }
+        .logbody .logbody03 input {
+            display: inline-block;
+            width: 240px;
+            border: 0;
+        }
+       .logbody03 div {
+            display: inline-block;
+            color: #3cffb5;
+       }
+       .logbutton {
+           position: absolute;
+           top: 710px;
+           left: 105px;
+           width: 400px;
+           height: 75px;
+           font-size: 32px;
+           color: #524cad;
+           line-height: 75px;
+           text-align: center;
+           background-color: #fff;
+           border-radius: 50px;
+       }
+       .endtext {
+           font-size: 23px;
+           text-align: center;
+           margin-top: 190px;
+           color: #fff;
+       }
+       .endtext a {
+           color:  #3cffb5;
+       }
+       .lvjing {
+           position: absolute;
+           top: 0;
+           z-index: -1;
+           height: 1063px;
+           background-color: rgba(255, 255, 255, 0.3);
+           /* 本来这里这个阴影还有效果的，忘记改啥失效了 */
+           box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
+       }
+       /* 这里我想让输入框，链接部分放在滤镜上方，但是不起作用 */
+       .continer {
+           position: relative;
+           z-index: 2;
+           height: 1030px;
+           overflow: hidden;
+       }
+       .lvjing img{
+           width: 600px;
+           height: 1066px;
+       }
+    </style>
+    <!-- 我在线引用了矢量图，但是在线的矢量图大小不能像本地下载下来的矢量图那样更改，故这里使用的矢量图看起来很小 -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3790273_ao30mdsycsp.css">
+</head>
+<body>
+    <div class="all w">
+        <div class="continer">
+            <!-- 最上面的部分 -->
+            <div class="loghead ">
+                <a href="#" class="loghead-01 iconfont">&#xe658;</a>
+                <div class="loghead-02 ">Sign Up</div>
+                <a href="#" class="loghead-03 iconfont">&#xe8e5;</a>
+            </div>
+            <!-- 中间部分 -->
+            <div class="bodyimg">
+            <div class="logbody01 iconfont">&#xe62b;</div>
+            </div>
+            <div class="logbody">
+            <div class="logbody02">
+                <input type="text" value="First Name">
+            </div>
+            <div class="logbody02">
+                <input type="text" value="Last Name">
+            </div>
+            <div class="logbody02">
+                <input type="text" value="Email Address">
+            </div>
+            <div class="logbody03">
+                <input type="text" value="Password">
+                <div class="show">Show</div>
+            </div>
+            </div>
+            <!-- 登录按钮 -->
+            <div class="logbutton">
+            Sign Up
+            </div>
+            <!-- 结尾文字 -->
+            <div class="endtext">
+                <span>Allready a member?</span>
+                <a href="#">Sign in</a>
+            </div>
+            <!-- 滤镜部分 加上这个滤镜图层放在最上方，那么我的输入框，链接等都无法点击 我尝试用z-index 来更改图层叠放顺序，让continer在滤镜上方，滤镜在背景上方来确保输入框和链接可点击，但是不起什么作用-->
+            <div class="lvjing w">
+                <img src="https://ta0.oss-cn-beijing.aliyuncs.com/Shape%207%20copy.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
